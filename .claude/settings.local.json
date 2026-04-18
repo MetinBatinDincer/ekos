@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command 'Get-Process -Name '\\\\''python*'\\\\'' | Where-Object { $_.CommandLine -like '\\\\''*uvicorn*'\\\\'' } | Stop-Process -Force')",
+      "Bash(powershell -Command 'Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }')",
+      "Bash(PYTHONIOENCODING=utf-8 python -m uvicorn main:app --reload --port 8000)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://localhost:8000/charge-sessions)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'{len\\(d\\)} oturum'\\); [print\\(f'  #{r[\\\\\"session_id\\\\\"]} ist={r[\\\\\"station_id\\\\\"]} enerji={r[\\\\\"energy_kwh\\\\\"]}kWh'\\) for r in d[:3]]\")",
+      "Bash(curl -s \"http://localhost:8000/sensor-data/history/1\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'{len\\(d\\)} kayit'\\); print\\(f'  Son: {d[0][\\\\\"time\\\\\"][:19]} {d[0][\\\\\"connector_status\\\\\"]} {d[0][\\\\\"power_kw\\\\\"]}kW'\\)\")",
+      "Bash(curl -s \"http://localhost:8000/sensor-data/history/2\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'{len\\(d\\)} kayit'\\)\")",
+      "Bash(python -c \"import sys; print\\(sys.stdin.read\\(\\)[:300]\\)\")",
+      "Bash(powershell -Command ' *)",
+      "Bash(npm run *)"
+    ]
+  }
+}
