@@ -178,3 +178,27 @@ NEREYE EKLENECEK?
 - xgboost_egitim.py içinde otomatik eklenecek
 - Ayrıca bir şey yapmanıza gerek yok!
 ======================================
+
+======================================
+MODEL 2 - XGBOOST EĞİTİMİ (4. ADIM - LSTM OLMADAN ÇALIŞMAZ!)
+======================================
+Gereken dosyalar:
+  - xgboost_veri.csv (data/UNB klasöründe)
+  - xgboost_egitim.py (data/UNB klasöründe)
+  - lstm_model.h5 <- 1. ADIMDAN ÇIKAN DOSYA! UNUTMA!
+
+Adımlar:
+  1. Colab i açın
+  2. xgboost_veri.csv dosyasını Colab a yükleyin
+  3. xgboost_egitim.py dosyasını Colab a yükleyin
+  4. lstm_model.h5 dosyasını Colab a yükleyin <- KRİTİK!
+  5. xgboost_egitim.py dosyasını çalıştırın
+  6. Çıktı olarak xgboost_model.json ve label_encoder.pkl oluşacak
+  7. Bu dosyaları indirip data/UNB klasörüne koyun
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! KRİTİK UYARI!!                   !!
+!! lstm_model.h5 olmadan XGBoost    !!
+!! kesinlikle çalışmaz!             !!
+!! Önce Model 3 u eğitmeyi unutma! !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
